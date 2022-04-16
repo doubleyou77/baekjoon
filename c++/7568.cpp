@@ -3,20 +3,27 @@
 using namespace std;
 
 int main() {
-	int N, arr[200][2];
+	int N;
+	int arr[50][50];
+	int result[50];
 
 	cin >> N;
 
 	for (int i = 0; i < N; i++) {
-		for (int j = 0; j < 2; j++) {
-			cin >> arr[i][j];
+		cin >> arr[i][0] >> arr[i][1];
+	}
+
+	int count;
+	for (int i = 0; i < N; i++) {
+		count = 1;
+		for (int j = 0; j < N; j++) {
+			if (arr[i][0] < arr[j][0] && arr[i][1] < arr[j][1])
+				count++;
 		}
+		result[i] = count;
 	}
 
 	for (int i = 0; i < N; i++) {
-		for (int j = 0; j < 2; j++) {
-			cout << arr[i][j];
-		}
-		cout << "\n";
+		cout << result[i] << " ";
 	}
 }
