@@ -4,13 +4,18 @@
 using namespace std;
 
 int main() {
-	int A[3];
+	int T;
 
-	for (int i = 0; i < 3; i++) {
-		cin >> A[i];
-	}
-	sort(A, A + 3);
-	for (int i = 0; i < 3; i++) {
-		cout << A[i] << " ";
+	cin >> T;
+
+	while (T--) {
+		int arr[10];
+		for (int i = 0; i < 10; i++) {
+			cin >> arr[i];
+		}
+
+		sort(arr, arr + 10);
+
+		cout << arr[7] << "\n";
 	}
 }
