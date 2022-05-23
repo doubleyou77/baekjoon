@@ -11,5 +11,6 @@ for i in range(0, len(arr[0])):
   for j in range(1, N):
     if (arr[j][i] != compare):
       compare = '?'
+
       break
   print(compare, end='')
