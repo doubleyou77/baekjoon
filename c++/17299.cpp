@@ -1,0 +1,43 @@
+#include <iostream>
+#include <vector>
+#include <stack>
+
+using namespace std;
+
+int freq[1000001];
+int main() {
+	int n;
+	cin >> n;
+
+	vector<int> a(n);
+	vector<int> ans(n);
+
+	for (int i = 0; i < n; i++) {
+		cin >> a[i];
+		freq[a[i]]++;
+	}
+
+	stack<int> s;
+	s.push(0);
+
+	for (int i = 0; i < n; i++) {
+		if (s.empty()) {
+			s.push(i);
+		}
+		while (!s.empty() && freq[a[s.top()]] < freq[a[i]]) {
+			ans[s.top()] = a[i];
+			s.pop();
+		}
+		s.push(i);
+	}
+	while (!s.empty()) {
+		ans[s.top()] = -1;
+		s.pop();
+	}
+
+	for (int i = 0; i < n; i++) {
+		cout << ans[i] << ' ';
+	}
+	cout << "\n";
+	return 0;
+}
